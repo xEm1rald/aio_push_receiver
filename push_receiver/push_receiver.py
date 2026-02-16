@@ -232,7 +232,7 @@ class PushReceiver:
         self.checkin_thread = threading.Timer(expected_timeout, self.__status_check)
         self.checkin_thread.start()
 
-    def listen(self, callback, obj=None):
+    def listen(self, callback, obj=None, close_event=threading.Event()):
         """
     listens for push notifications
 
@@ -241,7 +241,7 @@ class PushReceiver:
     """
         self.__login()
         self.__status_check()
-        while True:
+        while not close_event.is_set():
             try:
                 p = self.__recv()
                 if type(p) is DataMessageStanza:
