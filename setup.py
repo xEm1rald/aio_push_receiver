@@ -3,8 +3,8 @@
 from setuptools import setup, find_packages
 
 push_receiver_classifiers = [
-    "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
     "Intended Audience :: Developers",
     "License :: Public Domain",
     "Topic :: Software Development :: Libraries"
@@ -15,7 +15,7 @@ with open("README.rst", "r") as f:
 
 setup(
     name="rustPlusPushReceiver",
-    version="0.6.1",
+    version="0.7.0",
     author="Franc[e]sco & olijeffers0n",
     url="https://github.com/olijeffers0n/push_receiver",
     packages=find_packages("."),
@@ -24,6 +24,7 @@ setup(
     license="Unlicense",
     classifiers=push_receiver_classifiers,
     keywords="fcm gcm push notification firebase google",
+    python_requires=">=3.8",
     install_requires=["oscrypto", "protobuf", "cryptography", "betterproto", "requests"],
     extras_require={
         "example": ["appdirs"]
